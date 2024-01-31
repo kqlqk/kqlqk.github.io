@@ -37,8 +37,36 @@
         .btn {
             margin-top: 10px;
         }
-    </style>
 
+        .confirmation {
+            position: fixed;
+            bottom: -50px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 30px 60px;
+            border-radius: 4px;
+            transition: all 0.5s ease-in-out;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+        }
+
+        .confirmation.show {
+            bottom: 20px; /* Move into view */
+            opacity: 1;
+            animation: fadeOut 2s 2.5s forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -93,13 +121,27 @@
             </div>
         </div>
 
-        <input class="btn btn-outline-dark" type="submit" value="Send e-mail">
+        <button id="send-email-button" class="btn btn-outline-dark" type="button">Send e-mail</button>
     </form>
+
+    <h3 id="confirmation" class="confirmation">
+        Sent
+    </h3>
 </section>
 
 <footer class="bg-dark text-light text-center py-3" style="position: absolute; bottom: 0; width: 100%;">
     <p>© 2024 My Portfolio. All rights reserved.</p>
 </footer>
+
+<script>
+    document.getElementById('send-email-button').addEventListener('click', function () {
+        var confirmation = document.getElementById('confirmation');
+        confirmation.classList.add('show');
+        setTimeout(function () {
+            confirmation.classList.remove('show');
+        }, 4500);
+    });
+</script>
 
 </body>
 </html>
