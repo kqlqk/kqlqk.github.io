@@ -3,15 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About me</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/footer_style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #content {
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        h3 {
+            color: #343a40;
+            margin-top: 20px;
+        }
+
+        .carousel {
+            margin: auto;
+            max-width: 750px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .custom-carousel-control {
+            width: 5%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html">Portfolio</a>
@@ -34,45 +79,33 @@
     <h3>I didn't know what to add so here's a slider with my cat</h3>
 
     <div id="crs" class="carousel slide" data-ride="carousel">
-
-        <a class="carousel-control-prev" href="#crs" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Poprzedni</span>
-        </a>
-        <a class="carousel-control-next" href="#crs" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Następny</span>
-        </a>
-
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="photo/1.jpg" class="d-block" alt="Slide 1" height="650" width="750">
+                <img src="photo/1.jpg" class="d-block" alt="Slide 1">
             </div>
             <div class="carousel-item">
-                <img src="photo/2.jpg" class="d-block" alt="Slide 2" height="650" width="750">
+                <img src="photo/2.jpg" class="d-block" alt="Slide 2">
             </div>
             <div class="carousel-item">
-                <img src="photo/3.jpg" class="d-block" alt="Slide 3" height="650" width="750">
+                <img src="photo/3.jpg" class="d-block" alt="Slide 3">
             </div>
         </div>
+
+        <a class="carousel-control-prev custom-carousel-control" href="#crs" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">prev</span>
+        </a>
+        <a class="carousel-control-next custom-carousel-control" href="#crs" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">next</span>
+        </a>
     </div>
     <br>
 </section>
 
-<footer class="bg-dark text-light text-center">
+<footer class="bg-dark text-light text-center py-3">
     <p>© 2024 My Portfolio. All rights reserved.</p>
 </footer>
 
 </body>
 </html>
-
-<style>
-    .carousel {
-        margin: auto;
-        max-width: 750px;
-    }
-    .carousel-control-prev, .carousel-control-next {
-        width: 5%;
-    }
-</style>
-

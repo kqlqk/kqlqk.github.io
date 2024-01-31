@@ -1,27 +1,14 @@
-body, html {
-    height: 100%;
-    margin: 0;
+.navbar {
+    background-color: #343a40 !important;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
+.navbar-dark .navbar-toggler-icon {
+    background-color: #ffffff;
 }
 
-#content {
-    flex: 1;
-}
-
-footer {
+.footer {
     background-color: #343a40;
-    color: white;
-    text-align: center;
+    color: #fff;
     padding: 10px 0;
-}
-
-@media (max-width: 768px) {
-    footer {
-        padding: 20px 0;
-        text-align: center;
-    }
+    text-align: center;
 }

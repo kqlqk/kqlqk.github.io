@@ -3,12 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/footer_style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.12/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+        }
+
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            width: 60%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .download-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,114 +109,72 @@
         <p>Backend developer</p>
     </div>
 
-    <div class="section-title">
+    <div class="section" id="about">
+        <h2>About me</h2>
+        <p>
+            I am a backend developer with a passion for coding and problem-solving. I specialize in Java development and have experience with a wide range of technologies and frameworks.
+        </p>
+    </div>
+
+    <div class="section" id="experience">
         <h2>Experience</h2>
-        <b>Junior Backend Developer (remote) 06.2023 - 10.2023</b><br>
-        <b>LLC “KlinparkRent” Brest, Belarus</b><br>
-        Assisted senior developers in building web
-        application using Java 11, PostgreSQL 14 and Spring
-        Boot 2.6.
-        Actively participated in daily stand-up meetings,
-        making substantial contributions to project success.
-        Conducted testing for my contributions
+        <p>
+            <b>Junior Backend Developer (remote)</b><br>
+            <b>LLC “KlinparkRent” Brest, Belarus</b><br>
+            June 2023 - October 2023<br>
+            - Assisted senior developers in building web applications using Java 11, PostgreSQL 14, and Spring Boot 2.6.<br>
+            - Actively participated in daily stand-up meetings, making substantial contributions to project success.<br>
+            - Conducted testing for my contributions.
+        </p>
     </div>
-    <br>
 
-    <div class="section-title">
+    <div class="section" id="education">
         <h2>Education</h2>
-        Collegium Da Vinci<br>
-        Kutrzeby 10, 61-719 Poznan, Poland<br>
-        2022 - current
+        <p>
+            <b>Collegium Da Vinci</b><br>
+            Kutrzeby 10, 61-719 Poznan, Poland<br>
+            2022 - Current
+        </p>
     </div>
-    <br>
 
-    <div class="section-title">
+    <div class="section" id="skills">
         <h2>Skills</h2>
         <ul>
             <li>Java</li>
-            <li>TDD</li>
-            <li>Spring: framework, boot, security, cloud, web, data</li>
+            <li>Test-Driven Development (TDD)</li>
+            <li>Spring Frameworks (Boot, Security, Cloud, Web, Data)</li>
             <li>SQL, PostgreSQL, Hibernate</li>
             <li>API Development</li>
             <li>Docker</li>
             <li>HTML, CSS</li>
-            <li>Agile</li>
-            <li>Clean code</li>
+            <li>Agile Methodologies</li>
+            <li>Clean Code Practices</li>
         </ul>
     </div>
-    <br>
 
-    <div class="section-title">
+    <div class="section" id="contact">
         <h2>Contact</h2>
-        +48 000000000<br>
-        workmail@gmail.com
+        <p>
+            Phone: +48 000000000<br>
+            Email: workmail@gmail.com
+        </p>
+        <button class="btn btn-outline-dark" id="openPopup">Download CV</button>
     </div>
 
-    <div>
-        <button class="btn btn-outline-dark" id="openPopup">More info</button>
-
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close" id="closePopup">&times;</span>
-                <a href="pdfs/CV.pdf" download="CV.pdf" class="download-link">Download CV.pdf</a>
-            </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="closePopup">&times;</span>
+            <a href="pdf/CV.pdf" download="CV.pdf" class="download-link">Download CV.pdf</a>
         </div>
     </div>
-    <br>
-
 </section>
 
-<footer class="bg-dark text-light text-center">
+<footer class="bg-dark text-light text-center py-3" >
     <p>© 2024 My Portfolio. All rights reserved.</p>
 </footer>
+
 </body>
 </html>
-
-<style>
-    .popup {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); 
-    }
-
-    .popup-content {
-        background-color: white;
-        width: 60%;
-        max-width: 400px;
-        margin: 100px auto;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        position: relative;
-    }
-
-    .close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-        font-size: 24px;
-    }
-
-    .download-link {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-    .download-link:hover {
-        background-color: #0056b3;
-    }
-</style>
 
 <script>
     const openPopupButton = document.getElementById('openPopup');
@@ -150,7 +182,7 @@
     const popup = document.getElementById('popup');
 
     openPopupButton.addEventListener('click', () => {
-        popup.style.display = 'block';
+        popup.style.display = 'flex';
     });
 
     closePopupButton.addEventListener('click', () => {

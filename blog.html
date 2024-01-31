@@ -5,13 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/footer_style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.12/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        #content {
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        h4 {
+            color: #343a40;
+        }
+
+        .news-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column min-vh-100">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html">Portfolio</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -28,36 +54,39 @@
     </div>
 </nav>
 
-<section id="content" class="container mt-4 mb-auto">
+<section id="content" class="container mt-4 flex-grow-1">
     <h1>News</h1>
-    <h4> 06.23 - 10.23 </h4>
-    <p>
-        Working as a junior backend developer,
-        Assisting senior developers in building web
-        application using Java 11, PostgreSQL 14 and Spring
-        Boot 2.6.
-        Actively participating in daily stand-up meetings,
-        making substantial contributions to project success.
-        Conducting testing for my contributions
-    </p>
-    <br>
 
-    <h4> 01.22 - 06.23 </h4>
-    <p>
-        Doing hard leetcode tasks
-    </p>
-    <br>
+    <div class="news-item">
+        <h4>06.23 - 10.23</h4>
+        <p>
+            Working as a junior backend developer, assisting senior developers in building web
+            application using Java 11, PostgreSQL 14 and Spring Boot 2.6. Actively participating in daily stand-up meetings,
+            making substantial contributions to project success. Conducting testing for my contributions.
+        </p>
+    </div>
 
-    <h4> 10.22 - 02.23 </h4>
-    <p>
-        Learning microservices architecture,
-        fundamental patterns and connection types
-    </p>
-    <br>
+    <div class="news-item">
+        <h4>01.22 - 06.23</h4>
+        <p>
+            Working on challenging LeetCode tasks.
+        </p>
+    </div>
+
+    <div class="news-item">
+        <h4>10.22 - 02.23</h4>
+        <p>
+            Learning microservices architecture, fundamental patterns, and connection types.
+        </p>
+    </div>
 </section>
 
-<footer class="bg-dark text-light text-center mt-auto">
-    <p>© 2024 My Portfolio. All rights reserved.</p>
+<footer class="bg-dark text-light text-center py-3">
+        <p>© 2024 My Portfolio. All rights reserved.</p>
 </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.12/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
