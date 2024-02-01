@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <link rel="stylesheet" href="css/footer_style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -19,23 +20,11 @@
         }
 
         .container {
-            background-color: #ffffff;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             border-radius: 5px;
             padding: 20px;
             margin-top: 20px;
-        }
-
-        .form-label {
-            font-weight: bold;
-        }
-
-        .form-control {
-            width: 100%;
-        }
-
-        .btn {
-            margin-top: 10px;
+            flex: 1;
         }
 
         .confirmation {
@@ -44,27 +33,23 @@
             right: 20px;
             background-color: #4CAF50;
             color: white;
-            padding: 30px 60px;
+            padding: 15px 30px;
             border-radius: 4px;
-            transition: all 0.5s ease-in-out;
+            transition: bottom 0.5s ease, opacity 0.5s ease;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             opacity: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .confirmation.show {
-            bottom: 20px; /* Move into view */
+            bottom: 20px;
             opacity: 1;
-            animation: fadeOut 2s 2.5s forwards;
         }
 
+
         @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
     </style>
 </head>
@@ -80,7 +65,7 @@
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="about.html">About me</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item active"><a class="nav-link" href="contact.html">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="calculator.html">Calculator</a></li>
         </ul>
     </div>
@@ -123,24 +108,23 @@
 
         <button id="send-email-button" class="btn btn-outline-dark" type="button">Send e-mail</button>
     </form>
-
-    <h3 id="confirmation" class="confirmation">
-        Sent
-    </h3>
 </section>
 
-<footer class="bg-dark text-light text-center py-3" style="position: absolute; bottom: 0; width: 100%;">
+<h1 id="confirmation" class="confirmation">Sent</h1>
+
+<footer class="bg-dark text-light text-center py-3">
     <p>© 2024 My Portfolio. All rights reserved.</p>
 </footer>
 
 <script>
-    document.getElementById('send-email-button').addEventListener('click', function () {
+    document.getElementById('send-email-button').addEventListener('click', function() {
         var confirmation = document.getElementById('confirmation');
         confirmation.classList.add('show');
-        setTimeout(function () {
+        setTimeout(function() {
             confirmation.classList.remove('show');
-        }, 4500);
+        }, 4000);
     });
+
 </script>
 
 </body>
