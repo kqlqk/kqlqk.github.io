@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <link rel="stylesheet" href="css/footer_style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -13,7 +13,7 @@
     <style>
         body {
             background-color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -25,6 +25,45 @@
             padding: 20px;
             margin-top: 20px;
             flex: 1;
+            animation: fadeIn 1s;
+        }
+
+        h1 {
+            color: #343a40;
+            text-align: center;
+        }
+
+        label {
+            color: #343a40;
+        }
+
+        .form-control {
+            border: 1px solid #ccc;
+        }
+
+        #send-email-button {
+            background-color: #343a40;
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        #send-email-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #send-email-button:hover:enabled {
+            background-color: #212529;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .confirmation {
@@ -44,12 +83,6 @@
         .confirmation.show {
             bottom: 20px;
             opacity: 1;
-        }
-
-
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
         }
     </style>
 </head>
@@ -71,60 +104,77 @@
     </div>
 </nav>
 
-<section id="content" class="container mt-4">
+<section id="content" class="container mt-4 external-news-item">
     <h1>Contact</h1>
-    <p>If you have questions, please contact me using the form below.</p>
+    <p style="color: #343a40;text-align: center;">If you have questions, please contact me using the form below.</p>
 
     <form id="main-information" method="post">
         <div class="row">
             <div class="col-sm-7 col-md-5 col-lg-4">
                 <label class="form-label" for="name">Name:</label>
-                <input class="form-control" type="text" id="name" placeholder="John">
+                <input class="form-control" type="text" id="name" placeholder="John" required>
                 <br/>
             </div>
             <div class="col-sm-7 col-md-5 col-lg-4">
                 <label class="form-label" for="email">Email:</label>
-                <input class="form-control" type="text" id="email" placeholder="john123@mail.com">
+                <input class="form-control" type="email" id="email" placeholder="john123@mail.com" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
                 <br/>
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-7 col-md-5 col-lg-4">
-                <label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" id="title" placeholder="Job offer">
+                <label class="form-label" for="title">Title:</label>
+                <input class="form-control" type="text" id="title" placeholder="Job offer" required>
                 <br/>
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-9 col-md-9 col-lg-8">
-                <label class="form-label" for="msg">Message</label>
+                <label class="form-label" for="msg">Message:</label>
                 <br>
-                <textarea id="msg" rows="5" cols="30"></textarea>
+                <textarea id="msg" rows="5" cols="30" required></textarea>
                 <br/>
             </div>
         </div>
 
-        <button id="send-email-button" class="btn btn-outline-dark" type="button">Send e-mail</button>
+        <button id="send-email-button" class="btn btn-outline-dark" disabled>Send e-mail</button>
     </form>
-</section>
 
-<h1 id="confirmation" class="confirmation">Sent</h1>
+    <h1 id="confirmation" class="confirmation">Message Sent</h1>
+</section>
 
 <footer class="bg-dark text-light text-center py-3">
     <p>© 2024 My Portfolio. All rights reserved.</p>
 </footer>
 
 <script>
-    document.getElementById('send-email-button').addEventListener('click', function() {
-        var confirmation = document.getElementById('confirmation');
-        confirmation.classList.add('show');
-        setTimeout(function() {
-            confirmation.classList.remove('show');
-        }, 4000);
+    document.getElementById('main-information').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var form = this;
+
+        if (form.checkValidity()) {
+            var confirmationElement = document.getElementById('confirmation');
+            confirmationElement.classList.add('show');
+
+            setTimeout(function() {
+                confirmationElement.classList.remove('show');
+            }, 3000);
+        } else {
+            alert("Please fill in the form correctly.");
+        }
     });
 
+    document.addEventListener('input', function () {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var title = document.getElementById('title').value;
+        var msg = document.getElementById('msg').value;
+        var button = document.getElementById('send-email-button');
+
+        button.disabled = (name.trim() === "" || email.trim() === "" || title.trim() === "" || msg.trim() === "");
+    });
 </script>
 
 </body>

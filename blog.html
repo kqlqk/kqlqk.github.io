@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
-    <link rel="stylesheet" href="css/footer_style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         #content {
@@ -18,27 +21,47 @@
             padding: 20px;
             margin-top: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            animation: fadeIn 1s;
         }
 
-        h1 {
-            color: #343a40;
-        }
-
-        h4 {
+        h1, h4 {
             color: #343a40;
         }
 
         .news-item {
             margin-bottom: 20px;
             padding: 20px;
-            border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #f8f9fa;
+            background-color: #e9ecef;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .news-item:hover {
+            background-color: #dee2e6;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html">Portfolio</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -55,8 +78,31 @@
     </div>
 </nav>
 
-<section id="content" class="container mt-4 flex-grow-1">
-    <h1>News</h1>
+<section id="content" class="container mt-4 flex-grow-1 external-news-item">
+    <h1 class="text-center">News</h1>
+
+    <div class="news-item">
+        <h4>06.23 - 10.23</h4>
+        <p>
+            Working as a junior backend developer, assisting senior developers in building web
+            application using Java 11, PostgreSQL 14 and Spring Boot 2.6. Actively participating in daily stand-up meetings,
+            making substantial contributions to project success. Conducting testing for my contributions.
+        </p>
+    </div>
+
+    <div class="news-item">
+        <h4>01.22 - 06.23</h4>
+        <p>
+            Working on challenging LeetCode tasks.
+        </p>
+    </div>
+
+    <div class="news-item">
+        <h4>10.22 - 02.23</h4>
+        <p>
+            Learning microservices architecture, fundamental patterns, and connection types.
+        </p>
+    </div>
 
     <div class="news-item">
         <h4>06.23 - 10.23</h4>
@@ -83,7 +129,7 @@
 </section>
 
 <footer class="bg-dark text-light text-center py-3">
-        <p>© 2024 My Portfolio. All rights reserved.</p>
+    <p>© 2024 My Portfolio. All rights reserved.</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

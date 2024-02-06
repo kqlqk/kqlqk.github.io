@@ -4,18 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="css/footer_style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
+        body, html {
+            min-height: 100%; /* Используем min-height вместо height */
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column; /* Добавляем flex для правильного распределения контента */
+        }
+
+        #content {
+            flex: 1; /* Это позволяет контенту растягиваться и занимать доступное пространство */
+            animation: fadeIn 1s;
+        }
+
+        .navbar {
+            background-color: #343a40 !important;
+        }
+
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            /* Изображение для кнопки меню в мобильной версии */
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative; /* Изменено с fixed на relative */
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            #content {
+                padding-bottom: 100px; /* Увеличиваем отступ для мобильных устройств */
+            }
+        }
+
+        /* Дополнительные стили из вашего HTML-файла */
         body {
             background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         .container {
@@ -23,6 +63,8 @@
             border-radius: 5px;
             padding: 20px;
             margin-top: 20px;
+            background-color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .section {
@@ -30,6 +72,12 @@
             padding: 20px;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
+            background-color: #e9ecef;
+            transition: background-color 0.3s;
+        }
+
+        .section:hover {
+            background-color: #dee2e6;
         }
 
         .section h2 {
@@ -57,6 +105,18 @@
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             position: relative;
+            animation: popup-animation 0.5s;
+        }
+
+        @keyframes popup-animation {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .close {
@@ -81,9 +141,17 @@
         .download-link:hover {
             background-color: #0056b3;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
-
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -111,7 +179,8 @@
     <div class="section" id="about">
         <h2>About me</h2>
         <p>
-            I am a backend developer with a passion for coding and problem-solving. I specialize in Java development and have experience with a wide range of technologies and frameworks.
+            I am a backend developer with a passion for coding and problem-solving. I specialize in Java development and
+            have experience with a wide range of technologies and frameworks.
         </p>
     </div>
 
@@ -168,12 +237,9 @@
     </div>
 </section>
 
-<footer class="bg-dark text-light text-center py-3" >
+<footer class="bg-dark text-light text-center py-3">
     <p>© 2024 My Portfolio. All rights reserved.</p>
 </footer>
-
-</body>
-</html>
 
 <script>
     const openPopupButton = document.getElementById('openPopup');
@@ -188,3 +254,6 @@
         popup.style.display = 'none';
     });
 </script>
+
+</body>
+</html>

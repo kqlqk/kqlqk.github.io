@@ -1,12 +1,42 @@
+body, html {
+    min-height: 100%; /* Используем min-height вместо height */
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column; /* Добавляем flex для правильного распределения контента */
+}
+
+/* Содержимое страницы должно растягиваться, чтобы занять все доступное пространство */
+#content {
+    flex: 1; /* Это позволяет контенту растягиваться и занимать доступное пространство */
+}
+
 .navbar {
     background-color: #343a40 !important;
 }
-
 
 .navbar-dark .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    /* Изображение для кнопки меню в мобильной версии */
+}
+
+/* Стили для футера на всех страницах */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative; /* Изменено с fixed на relative */
+    bottom: 0;
+    width: 100%;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    #content {
+        padding-bottom: 100px; /* Увеличиваем отступ для мобильных устройств */
+    }
 }
